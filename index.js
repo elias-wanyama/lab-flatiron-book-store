@@ -43,5 +43,28 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+// write your code here!
+const bookStoreTitle = document.getElementById('header');
+bookStoreTitle.textContent = bookStore.name;
+const bookList = document.getElementById('book-list');
+bookStore.books.forEach(book => {
+    
+    // 1. Create elements for each book
+    const bookContainer = document.createElement('li');
+    const bookTitle = document.createElement('h3');
+    const bookAuthor = document.createElement('p');
+    const bookImage = document.createElement('img');
 
+    // 2. Change the textContent / src to match the book object
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = book.author;
+    bookImage.src = book.imageUrl; // Note: if your data uses 'imageUrl' or 'img', change this to match!
+
+    // 3. Append book elements to bookContainer
+    bookContainer.appendChild(bookTitle);
+    bookContainer.appendChild(bookAuthor);
+    bookContainer.appendChild(bookImage);
+
+    // 4. Append bookContainer element to bookList
+    bookList.appendChild(bookContainer);
+});
